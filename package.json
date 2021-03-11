@@ -43,7 +43,6 @@
     "dist"
   ],
   "dependencies": {
-    "@academicwork/awds-tsx": "^3.2.1",
     "array.partial": "^1.0.5",
     "react-infinite-scroll-component": "^4.0.2"
   },
@@ -118,6 +117,7 @@
     "why-did-you-update": "^0.1.1"
   },
   "peerDependencies": {
+    "@academicwork/awds-tsx": "^3.2.1",
     "react": "^16.0.0"
   },
   "ava": {
