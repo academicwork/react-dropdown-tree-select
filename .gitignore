@@ -42,8 +42,8 @@ package-lock.json
 
 # build outputs
 docs/bundle.js
-dist
-*.tgz
+# dist
+# *.tgz
 
 # Webstorm cache
 .idea
