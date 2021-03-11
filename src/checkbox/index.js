@@ -30,6 +30,7 @@ class Checkbox extends PureComponent {
         type="checkbox"
         ref={refUpdater({ checked, indeterminate })}
         indeterminate={indeterminate}
+        color="secondary"
         checked={checked}
         onChange={onChange}
         disabled={isDisabled}

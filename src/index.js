@@ -16,6 +16,9 @@ import Trigger from './trigger'
 import Tree from './tree'
 import TreeManager from './tree-manager'
 import keyboardNavigation from './tree-manager/keyboardNavigation'
+import { MuiThemeProvider } from '@material-ui/core/styles'
+import { themes } from '@academicwork/awds-tsx/themes'
+
 
 import './index.css'
 import { getAriaLabel } from './a11y'
@@ -53,10 +56,10 @@ class DropdownTreeSelect extends Component {
   }
 
   static defaultProps = {
-    onAction: () => {},
-    onFocus: () => {},
-    onBlur: () => {},
-    onChange: () => {},
+    onAction: () => { },
+    onFocus: () => { },
+    onBlur: () => { },
+    onChange: () => { },
     texts: {},
     showDropdown: 'default',
     inlineSearchInput: false,
@@ -317,18 +320,21 @@ class DropdownTreeSelect extends Component {
 
     if (this.props.treeOnly)
       return (
-        <Tree
-          data={this.state.tree}
-          keepTreeOnSearch={this.props.keepTreeOnSearch}
-          keepChildrenOnSearch={this.props.keepChildrenOnSearch}
-          searchModeOn={this.state.searchModeOn}
-          onAction={this.onAction}
-          onCheckboxChange={this.onCheckboxChange}
-          onNodeToggle={this.onNodeToggle}
-          mode={mode}
-          showPartiallySelected={this.props.showPartiallySelected}
-          {...commonProps}
-        />
+        <MuiThemeProvider theme={themes['Academic Work']}>
+          <Tree
+            data={this.state.tree}
+            keepTreeOnSearch={this.props.keepTreeOnSearch}
+            keepChildrenOnSearch={this.props.keepChildrenOnSearch}
+            searchModeOn={this.state.searchModeOn}
+            onAction={this.onAction}
+            onCheckboxChange={this.onCheckboxChange}
+            onNodeToggle={this.onNodeToggle}
+            mode={mode}
+            showPartiallySelected={this.props.showPartiallySelected}
+            {...commonProps}
+          />
+        </MuiThemeProvider>
+
       )
 
     return (
@@ -363,19 +369,19 @@ class DropdownTreeSelect extends Component {
               {this.state.allNodesHidden ? (
                 <span className="no-matches">{texts.noMatches || 'No matches found'}</span>
               ) : (
-                <Tree
-                  data={this.state.tree}
-                  keepTreeOnSearch={this.props.keepTreeOnSearch}
-                  keepChildrenOnSearch={this.props.keepChildrenOnSearch}
-                  searchModeOn={this.state.searchModeOn}
-                  onAction={this.onAction}
-                  onCheckboxChange={this.onCheckboxChange}
-                  onNodeToggle={this.onNodeToggle}
-                  mode={mode}
-                  showPartiallySelected={this.props.showPartiallySelected}
-                  {...commonProps}
-                />
-              )}
+                  <Tree
+                    data={this.state.tree}
+                    keepTreeOnSearch={this.props.keepTreeOnSearch}
+                    keepChildrenOnSearch={this.props.keepChildrenOnSearch}
+                    searchModeOn={this.state.searchModeOn}
+                    onAction={this.onAction}
+                    onCheckboxChange={this.onCheckboxChange}
+                    onNodeToggle={this.onNodeToggle}
+                    mode={mode}
+                    showPartiallySelected={this.props.showPartiallySelected}
+                    {...commonProps}
+                  />
+                )}
             </div>
           )}
         </div>
