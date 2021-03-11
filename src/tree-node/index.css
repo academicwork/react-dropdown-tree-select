@@ -58,3 +58,8 @@
     display: none;
   }
 }
+
+.treenode-override {
+  display: flex;
+  justify-content: space-between;
+}

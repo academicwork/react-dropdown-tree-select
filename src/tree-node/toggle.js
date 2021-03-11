@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { PureComponent } from 'react'
+import ExpandMoreIcon from '@academicwork/awds-tsx/icons/ExpandMore'
+import ExpandLessIcon from '@academicwork/awds-tsx/icons/ExpandLess'
+import { IconButton } from '@academicwork/awds-tsx/core'
 
 class Toggle extends PureComponent {
   static propTypes = {
@@ -31,14 +34,9 @@ class Toggle extends PureComponent {
     }
 
     return (
-      <i
-        role="button"
-        tabIndex={-1}
-        className={toggleCx}
-        onClick={this.onToggle}
-        onKeyDown={this.onKeyDown}
-        aria-hidden
-      />
+      <IconButton role="button" tabIndex={-1} onClick={this.onToggle} onKeyDown={this.onKeyDown} aria-hidden>
+        {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+      </IconButton>
     )
   }
 }

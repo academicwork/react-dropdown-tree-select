@@ -35,6 +35,7 @@ class DropdownTreeSelect extends Component {
       labelRemove: PropTypes.string,
     }),
     showDropdown: PropTypes.oneOf(['default', 'initial', 'always']),
+    treeOnly: PropTypes.Boolean,
     className: PropTypes.string,
     onChange: PropTypes.func,
     onAction: PropTypes.func,
@@ -60,6 +61,7 @@ class DropdownTreeSelect extends Component {
     showDropdown: 'default',
     inlineSearchInput: false,
     tabIndex: 0,
+    treeOnly: true,
   }
 
   constructor(props) {
@@ -312,6 +314,23 @@ class DropdownTreeSelect extends Component {
         inlineSearchInput={inlineSearchInput}
       />
     )
+
+    if (this.props.treeOnly)
+      return (
+        <Tree
+          data={this.state.tree}
+          keepTreeOnSearch={this.props.keepTreeOnSearch}
+          keepChildrenOnSearch={this.props.keepChildrenOnSearch}
+          searchModeOn={this.state.searchModeOn}
+          onAction={this.onAction}
+          onCheckboxChange={this.onCheckboxChange}
+          onNodeToggle={this.onNodeToggle}
+          mode={mode}
+          showPartiallySelected={this.props.showPartiallySelected}
+          {...commonProps}
+        />
+      )
+
     return (
       <div
         id={this.clientId}

@@ -43,6 +43,7 @@
     "dist"
   ],
   "dependencies": {
+    "@academicwork/awds-tsx": "^3.2.1",
     "array.partial": "^1.0.5",
     "react-infinite-scroll-component": "^4.0.2"
   },

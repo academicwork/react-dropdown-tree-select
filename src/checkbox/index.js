@@ -1,5 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, { Children, PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { Checkbox as AWDSCheckbox } from '@academicwork/awds-tsx/core'
 
 export const refUpdater = ({ checked, indeterminate }) => input => {
   if (input) {
@@ -22,10 +23,14 @@ class Checkbox extends PureComponent {
 
     const isDisabled = disabled || readOnly
 
+    console.log(this.props)
+
     return (
-      <input
+      <AWDSCheckbox
         type="checkbox"
         ref={refUpdater({ checked, indeterminate })}
+        indeterminate={indeterminate}
+        checked={checked}
         onChange={onChange}
         disabled={isDisabled}
         {...rest}
